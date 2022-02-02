@@ -107,7 +107,7 @@ if response != 'exit':
         if response == 'delete':
             job = f"gcloud scheduler jobs {response} sh-ingestion-greenhouse-{tabela} --location southamerica-east1 --quiet"
         else:
-            job = f"gcloud scheduler jobs {response} http sh-ingestion-greenhouse-{tabela} --location southamerica-east1 --schedule '0 12 * * *' --time-zone 'America/Sao_Paulo' --uri 'https://api-data-ingestion-cc7qkqckgq-rj.a.run.app/greenhouse/{tabela}' --http-method GET --description 'Ingestão dos dados do greenhouse da tabela {tabela} para o datalake da Movile' --max-retry-attempts 2 --max-doublings 5"
+            job = f"gcloud scheduler jobs {response} http sh-ingestion-greenhouse-{tabela} --location southamerica-east1 --schedule '0 13 * * *' --time-zone 'America/Sao_Paulo' --uri 'https://api-data-ingestion-cc7qkqckgq-rj.a.run.app/greenhouse/{tabela}' --http-method GET --description 'Ingestão dos dados do greenhouse da tabela {tabela} para o datalake da Movile' --max-retry-attempts 2 --max-doublings 5"
         
         try:
             write_job(job)
